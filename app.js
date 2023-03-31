@@ -34,9 +34,9 @@ app.use(express.urlencoded( { extended: true } ));
 app.use(express.static('public'));
 app.use(expressLayouts);
 
-app.use(cookieParser('CookingBlogSecure'));
+app.use(cookieParser('BlogAppSecure'));
 app.use(session({
-  secret: 'CookingBlogSecretSession',
+  secret: 'BlogAppSecretSession',
   saveUninitialized: true,
   resave: true
 }));
