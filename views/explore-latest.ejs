@@ -1,0 +1,26 @@
+<!--
+  This page is a template for displaying a list of blog posts on a website. The page is titled "Explore Latest" and features a heading with the same name.
+
+The page consists of a container with a row of cards, which contain links to individual blog posts. The container is styled using Bootstrap classes and contains a loop to iterate through the blog posts to generate each card.
+-->
+<h1 class="pb-4">Explore Latest</h1>
+
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+  <% if(blog != '') { %>
+    <!--
+      The loop checks if there are any blog posts available to display. If there are, it uses a forEach method to iterate through each blog post object and generate a card for each one. The forEach method executes a function for each element in the blog array, and within that function, the details of the blog post are displayed within the card using the corresponding properties of the blog post object.
+
+If there are no blog posts available to display, the loop is not executed and instead a message stating "No items found" is displayed.
+    -->
+    <% blog.forEach(function(blog, index){ %>
+    <a href="/blog/<%= blog._id %>" class="col text-center category__link">
+      <div class="category__img category__img--large shadow">
+        <img src="/uploads/<%= blog.image %>" alt="<%= blog.name %>" loading="lazy">
+      </div>
+      <div class="pt-1"><%= blog.name %></div>
+    </a>
+    <% }) %>
+  <% } else { %>
+    <p>No items found.</p>
+  <% } %> 
+</div>

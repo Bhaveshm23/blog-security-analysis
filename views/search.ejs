@@ -1,0 +1,23 @@
+<!--
+  This page displays search results in a grid layout with images and names of the blog posts. If there are no search results, a message "No items found" is displayed. Each blog post is linked to its individual page using its unique ID. 
+-->
+
+<!--
+  The image, blog name, and link are dynamically generated using server-side rendering technology, and the image is lazily loaded. Overall, the page is simple and easy to use, and the design is consistent with the rest of the website.
+-->
+<h1 class="pb-4">Search Results</h1>
+
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+  <% if(blog != '') { %>
+    <% blog.forEach(function(blog, index){ %>
+    <a href="/blog/<%= blog._id %>" class="col text-center category__link">
+      <div class="category__img category__img--large shadow">
+        <img src="/uploads/<%= blog.image %>" alt="<%= blog.name %>" loading="lazy">
+      </div>
+      <div class="pt-1"><%= blog.name %></div>
+    </a>
+    <% }) %>
+  <% } else { %>
+    <p>No items found.</p>
+  <% } %>
+</div>

@@ -1,0 +1,48 @@
+<!-- This is a HTML and EJS code for a page that displays categories and blogs within those categories. -->
+
+<!-- The first section is the breadcrumb navigation that allows users to navigate back to the home page, categories page, and the current page of exploring categories.-->
+
+<!-- The second section is a row of category images with their respective names as links that redirect users to the specific category's page. -->
+
+<!-- The third section displays blog posts within a specific category. If there are no blog posts within the category, a message "No items found" is displayed. -->
+
+<h1 class="pb-4">Explore Categories</h1>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/categories">Categories</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Explore Categories</li>
+  </ol>
+</nav>
+
+
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 mb-4">
+
+  <% if(typeof categories !== 'undefined' && categories.length > 0) { %>
+    <% categories.forEach(function(category, index) { %>
+      <a href="/categories/<%- category.name %>" class="col text-center category__link">
+        <div class="category__img shadow">
+          <img src="/img/<%- category.image %>" alt="<%- category.name %>" loading="lazy">
+        </div>
+        <div class="pt-1"><%- category.name %></div>
+      </a>
+    <% }) %>
+  <% } %>
+</div>
+
+
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+  <% if(typeof categoryById !== 'undefined' && categoryById.length > 0) { %>
+    <% categoryById.forEach(function(blog, index){ %>
+    <a href="/blog/<%= blog._id %>" class="col text-center category__link">
+      <div class="category__img category__img--large shadow">
+        <img src="/uploads/<%= blog.image %>" alt="<%= blog.name %>" loading="lazy">
+      </div>
+      <div class="pt-1"><%= blog.name %></div>
+    </a>
+    <% }) %>
+  <% } else { %>
+    <p>No items found.</p>
+  <% } %>
+</div>

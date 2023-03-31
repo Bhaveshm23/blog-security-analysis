@@ -1,0 +1,24 @@
+<!--
+
+  This is a webpage code snippet that includes a title, "Explore Random," and a container for displaying a randomly selected blog post. The container is created using a Bootstrap grid system with five columns for larger screens and two columns for smaller screens
+-->
+
+<!--
+
+The code uses a conditional statement to check if there is a blog post available. If there is a blog post, it displays the blog post's image, name, and a link to the blog post page. If there is no blog post available, it displays the message "No items found."-->
+<h1 class="pb-4">Explore Random</h1>
+
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+  <% if(blog != '') { %>
+   
+    <a href="/blog/<%= blog._id %>" class="col text-center category__link">
+      <div class="category__img category__img--large shadow">
+        <img src="/uploads/<%= blog.image %>" alt="<%= blog.name %>" loading="lazy">
+      </div>
+      <div class="pt-1"><%= blog.name %></div>
+    </a>
+  
+  <% } else { %>
+    <p>No items found.</p>
+  <% } %> 
+</div>

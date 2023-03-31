@@ -1,0 +1,85 @@
+<!--
+  This page looks like a submission form for a blog platform, where users can submit their articles to be featured on the platform. 
+-->
+<!--
+  The design is simple and easy to navigate, with a clear heading and concise instructions on how to submit the content. The form requires the user to provide their email, blog name, category, a brief summary of their article, and an optional image.
+-->
+
+<div class="px-4 py-5 my-5 text-center">
+  <h1 class="display-5 fw-bold">Submit Your Post</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead">Submit your content!!</p>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+
+  <% if(infoSubmitObj != '') { %>
+    <div class="col-8 alert alert-success" role="alert">
+      <%= infoSubmitObj %>
+    </div>
+  <% } %>
+
+  <% if(infoErrorsObj != '') { %>
+    <div class="col-8 alert alert-danger" role="alert">
+      <%= infoErrorsObj[0].message %>
+    </div>
+  <% } %>
+
+  <div class="col-8">
+
+    <p>Thank you for your interest in submitting content to our blog platform! We are always on the lookout for fresh, original and engaging articles from writers, experts and enthusiasts like you.</p>
+
+    <p>To submit your content, please fill out the form below with your name, email, the category you want to submit to, and a brief summary of your article. We will review your submission and get back to you as soon as possible.</p>
+    <p>We look forward to hearing from you and featuring your content on our platform!</p>
+    <form action="/submit-blog" enctype="multipart/form-data" method="POST">
+    
+
+      <div class="row g-3">
+
+        <div class="col-12">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" name="email" id="email" class="form-control">
+        </div>
+
+        <div class="col-12">
+          <label for="name" class="form-label">Blog Name</label>
+          <input type="text" name="name" id="name" class="form-control" required>
+        </div>
+        
+        <div class="col-12">
+          <label for="description" class="form-label">Description</label>
+          <textarea name="description" id="description" class="form-control" cols="30" rows="4"></textarea>
+        </div>
+
+        
+        <div class="col-12">
+          <label for="category">Select Category</label>
+          <select class="form-select form-control" name="category" aria-label="Category">
+            <option selected>Select Category</option>
+            <option value="Lifestyle">Lifestyle</option>
+            <option value="Food">Food</option>
+            <option value="Travel">Travel</option>
+            <option value="Education">Education</option>
+            <option value="Newsletter">Newsletter</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label for="image">Blog Image</label>
+          <input type="file" class="form-control" name="image" accept="image/*">
+        </div>
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit Blog</button>
+        </div>
+
+      </div>
+    
+    </form>
+
+  </div>
+  
+     <p style="color:red">Please note that we only accept original content that has not been published elsewhere, and we reserve the right to make edits to your submission for clarity, tone, and style. By submitting your content, you are agreeing to our terms and conditions.</p>
+  
+</div>

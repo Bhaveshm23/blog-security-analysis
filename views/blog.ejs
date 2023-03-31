@@ -1,0 +1,49 @@
+<!-- This is a template for displaying a single blog post, with conditional statements to check if the blog post exists before rendering its content. -->
+
+<!-- The code begins with an if statement to check if the blog post exists. If it does, a breadcrumb navigation is displayed, showing links to the home page and the current blog post. The blog post's image is then displayed at the top of the page. -->
+
+<!-- The main content of the blog post is then displayed in a container with two columns, where the left column contains the blog post's title, category, creation date, and author email, and the right column contains the blog post's description. The description is displayed using the "pre-line" CSS property to preserve any line breaks in the text. -->
+
+<!-- If the blog post does not exist, a simple "No item found" message is displayed instead. -->
+
+<% if(blog != null ) { %>
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page"><%- blog.name %></li>
+    </ol>
+  </nav>
+
+
+  <div class="row">
+
+    
+    <div class="col-12">
+      <img src="/uploads/<%- blog.image %>" class="img-fluid sticky-top" style="top: 20px;" alt="<%- blog.name %>" loading="lazy">
+    </div>
+
+    <div class="col-12 col-md-8">
+      <div class="row">
+        <div class="col-12"><h1><%- blog.name %></h1></div>
+        <div class="col-12 mb-4"><i class="bi bi-tag"></i> <%- blog.category %> --
+          <%= blog.createdAt.toLocaleDateString()%> --
+          <i class="text-dark"><%- blog.email %></i>
+        </div>
+        
+        <div class="col-12" style="white-space: pre-line;">
+          <%- blog.description %>
+        </div>
+        
+      </div>
+  
+      
+    
+    
+    </div>
+    
+
+  </div>
+<% } else { %>
+  <p>No item found.</p>
+<% } %>

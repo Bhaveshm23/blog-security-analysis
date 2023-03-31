@@ -1,0 +1,204 @@
+<!--
+This is a webpage that seems to be promoting a blogging platform. It contains a hero image with a call to action to join the platform, and below that are different sections showcasing the latest blog posts, as well as different categories of blogs such as Lifestyle, Education, and Travel. Each section has a "View More" button which links to the corresponding category page where users can find more blogs in that category.
+
+-->
+
+<!--
+The categories are displayed as images with a name below them. The blogs are displayed as images with the blog title below them, and clicking on the image or title will take you to the blog post. The page seems to be well-organized and user-friendly, with a clean and modern design
+-->
+<div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+  <div class="col-12 col-lg-6">
+    <img src="/img/side.png" width="607" height="510" class="d-block mx-lg-auto img-fluid" loading="lazy" alt="blog hero image">
+  </div>
+
+  <div class="col-12 col-lg-6">
+    <h1 class="display-5 fw-bold mb-3">Unleash your thoughts and share your story with the world, all in one place.</h1>
+    <p class="lead">From brainstorm to publish, simplify your blogging journey with us. </p>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+      <a href="/explore-latest" class="btn btn-primary btn-dark btn-lg px-4 me-md-2">Latest Blogs</a>
+      <a href="/explore-random" class="btn btn-outline-secondary btn-lg px-4 me-md-2">Random Blogs</a>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- Categories Start -->
+
+
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
+
+
+  <% if(categories != '') { %>
+    <% categories.forEach(function(category, index) { %>
+      <a href="/categories/<%- category.name %>" class="col text-center category__link">
+        <div class="category__img shadow">
+          <img src="img/<%- category.image %>" alt="<%- category.name %>" loading="lazy">
+        </div>
+        <div class="pt-1"><%- category.name %></div>
+      </a>
+    <% }) %>
+  <% } %>
+
+  <a href="/categories" class="col text-center category__link">
+    <div class="category__img shadow">
+      <img src="/img/travel_3.png" alt="View All Categories" loading="lazy">
+    </div>
+    <div class="pt-1">View All</div>
+  </a>
+
+</div>
+<!-- Categories End -->
+
+
+
+<!-- Latest Start -->
+
+<section class="pb-4 pt-4">
+  <div class="d-flex mb-2 align-items-center">
+    <h2>Latest Blogs</h2>
+    <a href="/explore-latest" class="ms-auto">View More</a>
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+
+    <% if(blogCategories != '') { %>
+      <% blogCategories.latest.forEach(function(blog, index){ %>
+      <a href="/blog/<%= blog._id %>" class="col text-center category__link">
+        <div class="category__img category__img--large shadow">
+          <img src="/uploads/<%= blog.image %>" alt="<%= blog.name %>" loading="lazy">
+        </div>
+        <div class="pt-1"><%= blog.name %></div>
+      </a>
+      <% }) %>
+    <% } else { %>
+      <p>No items found.</p>
+    <% } %>
+  </div>
+
+</section>
+<!-- Latest End -->
+
+<!-- Lifestyle Start -->
+<section class="pb-4 pt-4">
+  <div class="d-flex mb-2 align-items-center">
+    <h2>Lifestyle</h2>
+    <a href="/categories/Lifestyle" class="ms-auto">View More</a>
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <% if(typeof blogCategories.lifestyle !== 'undefined' && blogCategories.lifestyle.length > 0) { %>
+      <% blogCategories.lifestyle.forEach(function(blog, index){ %>
+      <a href="/blog/<%= blog._id %>" class="col text-center category__link">
+        <div class="category__img category__img--large shadow">
+          <img src="/uploads/<%= blog.image %>" alt="<%= blog.name %>" loading="lazy">
+        </div>
+        <div class="pt-1"><%= blog.name %></div>
+      </a>
+      <% }) %>
+    <% } else { %>
+      <p>No items found.</p>
+    <% } %>
+  </div>
+</section>
+<!-- Lifestyle End -->
+
+<!-- Education Start -->
+<section class="pb-4 pt-4">
+  <div class="d-flex mb-2 align-items-center">
+    <h2>Education</h2>
+    <a href="/categories/Education" class="ms-auto">View More</a>
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <% if(blogCategories.education != '') { %>
+      <% blogCategories.education.forEach(function(blog, index){ %>
+      <a href="/blog/<%= blog._id %>" class="col text-center category__link">
+        <div class="category__img category__img--large shadow">
+          <img src="/uploads/<%= blog.image %>" alt="<%= blog.name %>" loading="lazy">
+        </div>
+        <div class="pt-1"><%= blog.name %></div>
+      </a>
+      <% }) %>
+    <% } else { %>
+      <p>No items found.</p>
+    <% } %>
+  </div>
+</section>
+<!-- Education End -->
+
+<!-- Travel  -->
+<section class="pb-4 pt-4">
+  <div class="d-flex mb-2 align-items-center">
+    <h2>Travel</h2>
+    <a href="/categories/Travel" class="ms-auto">View More</a>
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <% if(blogCategories.travel != '') { %>
+      <% blogCategories.travel.forEach(function(blog, index){ %>
+      <a href="/blog/<%= blog._id %>" class="col text-center category__link">
+        <div class="category__img category__img--large shadow">
+          <img src="/uploads/<%= blog.image %>" alt="<%= blog.name %>" loading="lazy">
+        </div>
+        <div class="pt-1"><%= blog.name %></div>
+      </a>
+      <% }) %>
+    <% } else { %>
+      <p>No items found.</p>
+    <% } %>
+  </div>
+</section>
+<!-- Travel End -->
+
+
+
+<section style="background-color: black" class="px-4 py-5 my-5 text-center">
+  <!-- <img src="img/last_img.png"class="d-block mx-auto mb-4 img-fluid" alt="" width="566" height="208" loading="lazy"> -->
+  <h1 style= "color:white"class="display-5 fw-bold">Build your own template</h1>
+  <div class="col-lg-6 mx-auto">
+    <p style="color:white" class="lead mb-4">Choose from expertly curated colors, fonts, and page layouts to create a website template that matches your vision.    </p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a href="/template" class="btn btn-primary btn-dark btn-lg">Get Started -></a>
+    </div>
+  </div>
+</section>
+
+
+<section style="background-color: #0f7f7f" class="px-4 py-5 my-5 text-center">
+  <!-- <img src="img/last_img.png"class="d-block mx-auto mb-4 img-fluid" alt="" width="566" height="208" loading="lazy"> -->
+  <h1 style= "color:white"class="display-5 fw-bold">Generate revenue from your content with BlogApp Member Areas</h1>
+  <div class="col-lg-6 mx-auto">
+    <p style="color:white" class="lead mb-4">Monetize your blog with paid newsletters, podcasts, video series, and more. Squarespace Member Areas help you build, harness, and monetize the power of your online community.</p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a href="#" class="btn btn-primary btn-dark btn-lg">Learn More >></a>
+    </div>
+  </div>
+</section>
+
+<section style="background-color: #FAF9F6" class="px-4 py-5 my-5 text-center">
+  <!-- <img src="img/last_img.png"class="d-block mx-auto mb-4 img-fluid" alt="" width="566" height="208" loading="lazy"> -->
+  <h1 style= "color:black"class="display-5 fw-bold">Grow your online presence</h1>
+  <div class="col-lg-6 mx-auto">
+    <p style="color:black" class="lead mb-4">Boost traffic and increase engagement with built-in SEO tools, Facebook ads, email marketing and social posts.
+    </p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a href="/template" class="btn btn-primary btn-dark btn-lg">Start Now..</a>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="px-4 py-5 my-5 text-center">
+  <img src="img/last_img.png"class="d-block mx-auto mb-4 img-fluid" alt="" width="566" height="208" loading="lazy">
+  <h1 class="display-5 fw-bold">Share your ideas with millions of readers</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">Join a community of passionate writers and take your ideas to new heights.</p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a href="/submit-blog" class="btn btn-primary btn-dark btn-lg">Start Writing...</a>
+    </div>
+  </div>
+</section>

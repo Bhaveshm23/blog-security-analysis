@@ -1,0 +1,97 @@
+<!--
+    The page is a Contact Us form that allows users to send feedback, comments, or suggestions to the website team. It is written in HTML, using the Bootstrap framework for styling and responsive design.
+-->
+<!--
+    The page includes several form fields, including the name, email, subject, and message, all marked as required. The page also includes an introductory message that encourages users to share their feedback with the team
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+ <!-- Custom CSS -->
+ <style>
+  body {
+      background-color: #f8f9fa;
+  }
+
+  .container {
+      margin-top: 50px;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <h1>Contact Us</h1>
+
+    <form id="contact-form" method="post" action="#" role="form">
+
+        <div class="messages"></div>
+
+        <div class="controls">
+            <p><i>We value your feedback and input! If you have any questions, comments, or suggestions for our team, please don't hesitate to reach out to us using the form below. We will do our best to respond to your message as soon as possible.</i></p>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form_name">Name *</label>
+                        <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your name *" required="required" data-error="Name is required.">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form_email">Email *</label>
+                        <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="form_subject">Subject *</label>
+                        <input id="form_subject" type="text" name="subject" class="form-control" placeholder="Please enter your subject *" required="required" data-error="Subject is required.">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="form_message">Message *</label>
+                        <textarea id="form_message" name="message" class="form-control" placeholder="Please enter your message *" rows="4" required="required" data-error="Please, leave us a message."></textarea>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="submit" class="btn btn-success btn-send" value="Send message">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-muted"><strong>*</strong> These fields are required.</p>
+                </div>
+        </div>
+      </div>
+    </form>
+      
+</body>
+
+</html>
