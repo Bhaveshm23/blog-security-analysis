@@ -8,7 +8,6 @@
     GET /categories: Renders the categories page with a list of all categories
     GET /categories/:id: Renders the posts page for a specific category
     Additionally, this file defines the routes for the "explore" and "submit blog" functionalities of the application.
-    The explore routes allow users to search for recipes and explore the latest or random posts.
     The submit blog routes allow users to submit a new blog post by rendering the form and handling form data submission.
     Each route is associated with a corresponding controller method to handle the logic and rendering of the view.
     The router module is exported to be used in the main application file.
@@ -28,7 +27,7 @@ router.get('/categories', blogController.exploreCategories);
 router.get('/categories/:id', blogController.exploreCategoriesById);
 
 //explore routes
-router.post('/search', exploreController.searchRecipe);
+router.post('/search', exploreController.searchBlog);
 router.get('/explore-latest', exploreController.exploreLatest);
 router.get('/explore-random', exploreController.exploreRandom);
 

@@ -8,13 +8,14 @@
  * 
  */
 require('../models/database');
+const crypto = require('crypto');
 const Category = require('../models/Category');
 const Blog = require('../models/Blog');
 /**
  * POST /search
  * Search 
 */
-exports.searchRecipe = async(req, res) => {
+exports.searchBlog = async(req, res) => {
     try {
       let searchTerm = req.body.searchTerm;
       let blog = await Blog.find( { $text: { $search: searchTerm, $diacriticSensitive: true } });
@@ -46,7 +47,7 @@ exports.searchRecipe = async(req, res) => {
   exports.exploreRandom = async(req, res) => {
     try {
       let count = await Blog.find().countDocuments();
-      let random = Math.floor(Math.random() * count);
+      let random = crypto.randomInt(0,count-1);
       let blog = await Blog.findOne().skip(random).exec();
       res.render('explore-random', { title: 'Blog - Random', blog } );
     } catch (error) {

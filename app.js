@@ -26,6 +26,8 @@ const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 
 const app = express();
+app.disable('x-powered-by');
+
 const port = process.env.PORT || 3000;
 
 require('dotenv').config();
@@ -34,9 +36,12 @@ app.use(express.urlencoded( { extended: true } ));
 app.use(express.static('public'));
 app.use(expressLayouts);
 
+//code for session management
+const secret =  process.env.BLOG_APP_SECRET_SESSION;
+
 app.use(cookieParser('BlogAppSecure'));
 app.use(session({
-  secret: BLOG_APP_SECRET_SESSION,
+  secret: secret,
   saveUninitialized: true,
   resave: true
 }));
