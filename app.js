@@ -36,7 +36,7 @@ app.use(expressLayouts);
 
 app.use(cookieParser('BlogAppSecure'));
 app.use(session({
-  secret: 'BlogAppSecretSession',
+  secret: BLOG_APP_SECRET_SESSION,
   saveUninitialized: true,
   resave: true
 }));
