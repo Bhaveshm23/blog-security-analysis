@@ -21,8 +21,8 @@
     "express-fileupload": "^1.2.1",
     "express-rate-limit": "^6.7.0",
     "express-session": "^1.17.2",
-    "mongodb": "^4.1.2",
-    "mongoose": "^6.4.6",
+    "mongodb": "^4.17.0",
+    "mongoose": "^6.12.0",
     "sanitize-html": "^2.10.0"
   },
   "devDependencies": {
