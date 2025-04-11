@@ -23,7 +23,7 @@
     "express-session": "^1.17.2",
     "mongodb": "^4.1.2",
     "mongoose": "^6.4.6",
-    "sanitize-html": "^2.10.0"
+    "sanitize-html": "^2.15.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.13"
